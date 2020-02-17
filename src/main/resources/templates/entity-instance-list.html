@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <table th:if="${entityInstances != null}">
+            <thead th:if="${entityInstances.size() > 0}">
+                <td th:each="entityFieldName: ${entityInstances.get(0).getFieldNames()}">
+                    <span th:text="${entityFieldName}"></span>
+                </td>
+            </thead>
+            <tbody th:if="${entityInstances.size() > 0}">
+                <tr th:each="entityInstanceReflection: ${entityInstances}">
+                    <td th:each="entityFieldReflection: ${entityInstanceReflection}">
+                        <span th:text="${entityFieldReflection.toString()}"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a th:href="@{/admax}">
+            К списку сущностей
+        </a>
+    </body>
+</html>

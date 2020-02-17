@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <ul th:each="entityClassName: ${entityClassNames}">
+            <li>
+                <a th:href="@{/admax/entity-instance-list/(entityClassName = ${entityClassName})}">
+                    <span th:text="${entityClassName}"></span>
+                </a>
+            </li>
+        </ul>
+    </body>
+</html>
